@@ -1,0 +1,26 @@
+<div class="login-form">
+    <form [formGroup]="loginform" (ngSubmit)="onSubmit()">
+        <h2 class="text-center">Login</h2>       
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Username" required="required" id="userName" formControlName="userName" >
+            <span class="p-2 alert alert-danger" *ngIf="errors || (loginform?.get('userName')?.errors &&
+                (loginform?.get('userName')?.touched || loginform?.get('userName')?.dirty))">
+                Invalid Password
+            </span>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password" required="required" id="password" formControlName="password" >
+            <span class="p-2 alert alert-danger" *ngIf="errors || (loginform?.get('password')?.errors &&
+                (loginform?.get('password')?.touched || loginform?.get('password')?.dirty))">
+                Invalid Password
+            </span>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Log in</button>
+        </div>
+        <div class="clearfix">
+            <a href="#" class="float-right">Forgot Password?</a>
+        </div>        
+    </form>
+    <p class="text-center"><a href="registration">Register with us</a></p>
+</div>

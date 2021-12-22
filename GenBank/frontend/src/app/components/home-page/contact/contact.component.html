@@ -1,0 +1,71 @@
+<!-- Contact section-->
+<section class="bg-light py-5">
+  <div class="container px-5 my-5 px-5">
+    <div class="text-center mb-5">
+      <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
+      <h2 class="fw-bolder">Get in touch</h2>
+      <p class="lead mb-0">We'd love to hear from you</p>
+    </div>
+    <div class="row gx-5 justify-content-center">
+      <div class="col-lg-8">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="form-horizontal" id="contactForm">
+          <div class="panel panel-primary d-flex justify-content-around">
+            <div class="panel-body">
+              <div class="form-group" [ngClass]="{'has-error' : contactForm?.get('fullName')?.errors &&
+                (contactForm?.get('fullName')?.touched || contactForm?.get('fullName')?.dirty)}">
+                <label class="p-2" for="fullName">Full Name</label>
+                <div class="p-2">
+                  <input type="text" id="fullName" formControlName="fullName" class="form-control">
+                  <br>
+                  <span class="p-2 alert alert-danger" *ngIf="contactForm?.get('fullName')?.errors &&
+                    (contactForm?.get('fullName')?.touched || contactForm?.get('fullName')?.dirty)">
+                    Name required with minimum length 4
+                  </span>
+                </div>
+              </div>
+              <div class="form-group" [ngClass]="{'has-error' : contactForm?.get('email')?.errors &&
+              (contactForm?.get('email')?.touched || contactForm?.get('email')?.dirty)}">
+                <label class="p-2" for="email">Email</label>
+                <div class="p-2">
+                  <input type="text" id="email" formControlName="email" class="form-control">
+                  <br>
+                  <span class="p-2 alert alert-danger" *ngIf="contactForm?.get('email')?.errors &&
+                    (contactForm?.get('email')?.touched || contactForm?.get('email')?.dirty)">
+                    Invalid email
+                  </span>
+                </div>
+              </div>
+              <div class="form-group" [ngClass]="{'has-error' : contactForm?.get('phoneNo')?.errors &&
+              (contactForm?.get('phoneNo')?.touched || contactForm?.get('phoneNo')?.dirty)}">
+                <label class="p-2" for="phoneNo">Phone Number</label>
+                <div class="p-2">
+                  <input type="text" id="phoneNo" formControlName="phoneNo" class="form-control">
+                  <br>
+                  <span class="p-2 alert alert-danger" *ngIf="contactForm?.get('phoneNo')?.errors &&
+                    (contactForm?.get('phoneNo')?.touched || contactForm?.get('phoneNo')?.dirty)">
+                    Phone number should be 10 digits
+                  </span>
+                </div>
+                <div class="form-group" [ngClass]="{'has-error' : contactForm?.get('message')?.errors &&
+                (contactForm?.get('message')?.touched || contactForm?.get('message')?.dirty)}">
+                  <label class="p-2" for="message">Message</label>
+                  <div class="p-2">
+                    <textarea id="message" form="contactForm" formControlName="message" class="form-control"></textarea>
+                    <br>
+                    <span class="p-2 alert alert-danger" *ngIf="contactForm?.get('message')?.errors &&
+                      (contactForm?.get('message')?.touched || contactForm?.get('message')?.dirty)">
+                      Please enter query
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="panel-footer p-2">
+                <button class="btn btn-primary" type="submit">Submit</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

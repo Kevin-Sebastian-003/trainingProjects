@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+
+.feature {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+    width: 4rem;
+    font-size: 2rem;
+}
