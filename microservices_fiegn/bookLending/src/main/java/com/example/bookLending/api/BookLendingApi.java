@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.ModelMap;
 
 @RestController
 public class BookLendingApi {
@@ -22,26 +23,30 @@ public class BookLendingApi {
 	private BookInventoryClient client;
 
 	private List<Book> books;
-	public BookLendingApi(){
+
+	public BookLendingApi() {
 		this.books = new ArrayList<>();
 	}
 
 	@RequestMapping("/books/change/{id}/{status}")
-	public List<Book> changeStatus(
+	public ModelAndView changeStatus(
 			@PathVariable("id") int id,
 			@PathVariable("status") String status) {
-		return client.changeStatus(id, status);
+		books = client.changeStatus(id, status);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("Landing");
+		mv.addObject("message", "Changed Book status to " + status);
+		mv.addObject("books", books);
+		return mv;
 	}
 
-	// @RequestMapping("/books")
-	// public List<Book> showAll() {
-	// 	return client.showAll();
-	// }
-
 	@RequestMapping("/books")
-	public ModelAndView showAll(){
-		ModelAndView mv = new ModelAndView("Landing", "books", books);
+	public ModelAndView showAll() {
+		books = client.showAll();
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("Landing");
 		mv.addObject("message", "Showing Books");
+		mv.addObject("books", books);
 		return mv;
 	}
 }
