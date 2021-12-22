@@ -1,4 +1,4 @@
-package com.virtusa.school.config;
+package com.example.school.config;
 
 
 import java.util.Properties;
@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-public class StudentConfig {
+public class Config {
     @Value("${db.driver}")
     private String dbDriver;
 

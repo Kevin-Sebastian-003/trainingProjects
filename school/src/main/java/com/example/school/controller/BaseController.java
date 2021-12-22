@@ -1,4 +1,4 @@
-package com.virtusa.school.controller;
+package com.example.school.controller;
 
 import org.slf4j.*;
 

@@ -1,4 +1,4 @@
-package com.virtusa.school.entity;
+package com.example.school.entity;
 
 
 import javax.persistence.*;
@@ -15,7 +15,7 @@ private DepartmentEntity dept;
 
 @Entity
 @Table(name="tbl_student")
-public class StudentEntity {
+public class SubjectEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

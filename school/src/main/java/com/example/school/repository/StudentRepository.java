@@ -1,8 +1,8 @@
-package com.virtusa.school.repository;
+package com.example.school.repository;
 
 import java.util.List;
 
-import com.virtusa.school.entity.StudentEntity;
+import com.example.school.entity.StudentEntity;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

@@ -1,4 +1,4 @@
-package com.virtusa.school.model;
+package com.example.school.model;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;

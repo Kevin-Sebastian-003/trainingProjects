@@ -1,8 +1,8 @@
-package com.virtusa.school.controller;
+package com.example.school.controller;
 
-import com.virtusa.school.model.DepartmentModel;
-import com.virtusa.school.model.StaffModel;
-import com.virtusa.school.model.StudentModel;
+import com.example.school.model.DepartmentModel;
+import com.example.school.model.StaffModel;
+import com.example.school.model.StudentModel;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

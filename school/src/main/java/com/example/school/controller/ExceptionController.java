@@ -1,6 +1,6 @@
-package com.virtusa.school.controller;
+package com.example.school.controller;
 
-import com.virtusa.school.exception.StudentException;
+import com.example.school.exception.StudentException;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

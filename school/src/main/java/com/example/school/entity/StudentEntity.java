@@ -1,4 +1,4 @@
-package com.virtusa.school.entity;
+package com.example.school.entity;
 
 
 import javax.persistence.*;

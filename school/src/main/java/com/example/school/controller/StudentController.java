@@ -1,5 +1,5 @@
 
-package com.virtusa.school.controller;
+package com.example.school.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,10 +11,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 
-import com.virtusa.school.entity.StudentEntity;
-import com.virtusa.school.exception.StudentException;
-import com.virtusa.school.model.StudentModel;
-import com.virtusa.school.service.StudentServiceInterface;
+import com.example.school.entity.StudentEntity;
+import com.example.school.exception.StudentException;
+import com.example.school.model.StudentModel;
+import com.example.school.services.StudentServiceInterface;
 
 @Controller
 public class StudentController extends BaseController{

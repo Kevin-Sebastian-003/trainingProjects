@@ -1,12 +1,12 @@
-package com.virtusa.school.services;
+package com.example.school.services;
 
 import java.util.List;
 
 import javax.transaction.Transactional;
 
-import com.virtusa.school.config.StudentConfig;
-import com.virtusa.school.entity.StudentEntity;
-import com.virtusa.school.repository.StudentRepository;
+import com.example.school.config.Config;
+import com.example.school.entity.StudentEntity;
+import com.example.school.repository.StudentRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 public class StudentService implements StudentServiceInterface{
     
     @Autowired
-    private StudentConfig studentConfig;
+    private Config studentConfig;
 
     @Autowired
     private StudentRepository studentRepository;

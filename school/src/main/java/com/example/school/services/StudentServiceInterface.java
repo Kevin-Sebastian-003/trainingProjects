@@ -1,8 +1,8 @@
-package com.virtusa.school.services;
+package com.example.school.services;
 
 import java.util.List;
 
-import com.virtusa.school.entity.StudentEntity;
+import com.example.school.entity.StudentEntity;
 
 public interface StudentServiceInterface {
 

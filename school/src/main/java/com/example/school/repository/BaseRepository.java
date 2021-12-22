@@ -1,4 +1,4 @@
-package com.virtusa.school.repository;
+package com.example.school.repository;
 
 public abstract class BaseRepository {
     
