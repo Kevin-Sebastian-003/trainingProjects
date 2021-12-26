@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Registration } from 'src/app/models/registration';
 
 @Component({
   selector: 'app-registration',
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
 export class RegistrationComponent implements OnInit {
   registrationform!: FormGroup;
   errors!: Boolean;
+  model!: Registration;
   validationMessages: any = {
     'firstname': { 'required': 'First Name required', 'minlength': 'firstname should be atleast 4 characters' },
     'lastname': { 'required': 'Last Name required' },
@@ -21,10 +23,10 @@ export class RegistrationComponent implements OnInit {
     'email': { 'required': 'Email required', 'email': 'Enter valid email' },
     'password': { 'required': 'Password required', 'minlength': 'Password should be atleast 6 characters' },
     'address1': { 'required': 'Address required' },
-    'pincode': { 'required': 'Pincode required' },
-    'city': { 'required': 'City required' },
-    'state': { 'required': 'State required' },
-    'country': { 'required': 'Country required' },
+    'pincode': { 'required': 'PIN code required', 'pattern': 'enter valid PIN code' },
+    'city': { 'required': 'City required', 'pattern': 'enter valid city' },
+    'state': { 'required': 'State required', 'pattern': 'enter valid state' },
+    'country': { 'required': 'Country required', 'pattern': 'enter valid country' },
     'agreement': { 'required': 'Please agree to terms and conditions' }
   };
   formErrors: any = {
@@ -38,7 +40,9 @@ export class RegistrationComponent implements OnInit {
     'agreement': ''
   };
 
-  constructor(private fb: FormBuilder, private router: Router) { }
+  constructor(private fb: FormBuilder, private router: Router) {
+    this.model = new Registration();
+  }
 
   ngOnInit(): void {
     this.errors = false;
@@ -54,11 +58,11 @@ export class RegistrationComponent implements OnInit {
       password!: ['', [Validators.required, Validators.minLength(6)]],
       address1!: ['', Validators.required],
       address2: [''],
-      pincode!: ['', Validators.required],
-      city!: ['', Validators.required],
-      state!: ['', Validators.required],
-      country!: ['', Validators.required],
-      agreement!: ['', Validators.required]
+      pincode!: ['', [Validators.required, Validators.pattern('[0-9]{6}')]],
+      city!: ['', [Validators.required, Validators.pattern('[a-z]+')]],
+      state!: ['', [Validators.required, Validators.pattern('[a-z]+')]],
+      country!: ['', [Validators.required, Validators.pattern('[a-z]+')]],
+      agreement!: ['', Validators.requiredTrue]
     });
     this.registrationform.valueChanges.subscribe((data) => {
       this.logValidationErrors(this.registrationform);
@@ -66,10 +70,11 @@ export class RegistrationComponent implements OnInit {
     });
   }
 
-  commonBlur(){
+  commonBlur() {
     this.logValidationErrors();
     this.logValidationSuccess();
   }
+
   logValidationErrors(group: FormGroup = this.registrationform): void {
     Object.keys(group.controls).forEach((key) => {
       const abstractControl = group.get(key);
@@ -92,17 +97,35 @@ export class RegistrationComponent implements OnInit {
   logValidationSuccess(group: FormGroup = this.registrationform): void {
     Object.keys(group.controls).forEach((key) => {
       const abstractControl = group.get(key);
-      if(abstractControl && this.formErrors[key] && (abstractControl.touched || abstractControl.dirty)){
-        this.formSuccess[key]='1';
+      if (abstractControl && !this.formErrors[key] && (abstractControl.touched || abstractControl.dirty)) {
+        this.formSuccess[key] = '1';
+      }
+      else {
+        this.formSuccess[key] = '';
       }
     });
   }
 
   onSubmit() {
-    if(this.registrationform.valid)
-    console.log("OK");
-    else
-    this.registrationform.invalid;
+    if (this.registrationform.valid) {
+      this.model.firstname = this.registrationform.get('firstname')?.value;
+      this.model.lastname = this.registrationform.get('lastname')?.value;
+      this.model.gender = this.registrationform.get('gender')?.value;
+      this.model.pan = this.registrationform.get('pan')?.value;
+      this.model.aadhar = this.registrationform.get('aadhar')?.value;
+      // this.model.countrycode = this.registrationform.get('countrycode')?.value;
+      this.model.phone = this.registrationform.get('phone')?.value;
+      this.model.email = this.registrationform.get('email')?.value;
+      this.model.password = this.registrationform.get('password')?.value;
+      this.model.address = this.registrationform.get('address1')?.value + this.registrationform.get('address2')?.value;
+      this.model.pincode = this.registrationform.get('pincode')?.value;
+      this.model.city = this.registrationform.get('firstname')?.value;
+      this.model.state = this.registrationform.get('state')?.value;
+      this.model.country = this.registrationform.get('country')?.value;
+      console.log(this.model);
+      console.log("OK");
+    } else
+      console.log("Not ok");
 
   }
 

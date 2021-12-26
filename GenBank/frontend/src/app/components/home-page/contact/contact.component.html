@@ -60,7 +60,7 @@
                 </div>
               </div>
               <div class="panel-footer p-2">
-                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn btn-primary" type="submit" [disabled]="contactForm?.invalid || contactForm?.untouched">Submit</button>
               </div>
             </div>
           </div>

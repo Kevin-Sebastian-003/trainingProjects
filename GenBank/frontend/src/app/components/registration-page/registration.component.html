@@ -25,9 +25,9 @@
         <select class="form-select" required="required" id="gender" formControlName="gender" 
         (blur)="commonBlur()" [ngClass]="{'is-invalid' : formErrors.gender, 'is-valid': formSuccess.gender}" 
         required>
-          <option value="1">Female</option>
-          <option value="2">Male</option>
-          <option value="3">Others</option>
+          <option value="Female">Female</option>
+          <option value="Male">Male</option>
+          <option value="Others">Others</option>
         </select>
         <div class="invalid-feedback" *ngIf="formErrors.gender">
           {{formErrors.gender}}
@@ -103,8 +103,7 @@
     <div class="col-md-12">
       <label class="form-label" for="address2">Address Line 2</label>
       <input type="text" class="form-control" id="address2" placeholder="address line 2" formControlName="address2"
-        (blur)="commonBlur()" [ngClass]="{'is-invalid' : formErrors.address2, 'is-valid': formSuccess.address2}"
-        required>
+        (blur)="commonBlur()" [ngClass]="{'is-invalid' : formErrors.address2, 'is-valid': formSuccess.address2}">
       <div class="invalid-feedback" *ngIf="formErrors.address2">
         {{formErrors.address2}}
       </div>
@@ -113,7 +112,7 @@
 
   <div class="row p-2">
     <div class="col-md-6">
-      <label class="form-label" for="pincode">Pincode</label>
+      <label class="form-label" for="pincode">PIN code</label>
       <input type="text" class="form-control" id="pincode" placeholder="123456" formControlName="pincode"
         (blur)="commonBlur()" [ngClass]="{'is-invalid' : formErrors.pincode, 'is-valid': formSuccess.pincode}" 
         required>
@@ -153,7 +152,7 @@
     </div>
   </div>
   <div class="row p-2">
-    <input class="form-check-input is-invalid" type="checkbox" value="" id="agreement" 
+    <input class="form-check-input" type="checkbox" value="" id="agreement" formControlName="agreement"
     (blur)="commonBlur()" [ngClass]="{'is-invalid' : formErrors.agreement, 'is-valid': formSuccess.agreement}"
     required>
       <label class="form-check-label" for="agreement">
@@ -166,7 +165,7 @@
   </div>
 
   <div class="row p-5">
-    <button type="submit" class="btn btn-primary" data-mdb-ripple-color="dark">Register</button>
+    <button type="submit" class="btn btn-primary" data-mdb-ripple-color="dark" [disabled]="registrationform.invalid">Register</button>
   </div>
 
 </form>
