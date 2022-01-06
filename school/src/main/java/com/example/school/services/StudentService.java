@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import com.example.school.config.Config;
+// import com.example.school.config.Config;
 import com.example.school.entity.StudentEntity;
 import com.example.school.repository.StudentRepository;
 
@@ -15,8 +15,8 @@ import org.springframework.stereotype.Service;
 @Transactional
 public class StudentService implements StudentServiceInterface{
     
-    @Autowired
-    private Config studentConfig;
+    // @Autowired
+    // private Config studentConfig;
 
     @Autowired
     private StudentRepository studentRepository;

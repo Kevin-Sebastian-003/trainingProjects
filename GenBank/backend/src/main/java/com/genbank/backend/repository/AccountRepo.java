@@ -1,6 +1,5 @@
 package com.genbank.backend.repository;
 
-import java.util.List;
 
 import com.genbank.backend.model.Account;
 

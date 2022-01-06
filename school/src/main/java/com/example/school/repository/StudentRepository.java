@@ -25,6 +25,7 @@ public class StudentRepository extends BaseRepository {
         return session.get(StudentEntity.class,id);
     }
 
+    @SuppressWarnings({"deprecation","unchecked"})
     public List<StudentEntity> getStudents(){
         Session session = sessionFactory.getCurrentSession();
         return session.createCriteria(StudentEntity.class).list();

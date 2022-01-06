@@ -8,13 +8,13 @@ import { RegistrationComponent } from './components/registration-page/registrati
 import { UserPageComponent } from './components/user-page/user-page.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, data: { title: 'Homepage' } },
   { path: 'home',  component: HomeComponent, data: { title: 'Homepage' } },
   { path: 'login',  component: LoginComponent, data: { title: 'Login' } },
   { path: 'registration',  component: RegistrationComponent, data: { title: 'Registration' } },
   { path: 'about',  component: AboutComponent, data: { title: 'About' } },
   { path: 'user',  component: UserPageComponent, data: { title: 'User Page' } },
   { path: 'admin',  component: AdminPageComponent, data: { title: 'Admin Page' } },
+  { path: '', component: HomeComponent, data: { title: 'Homepage' } }
 ];
 
 @NgModule({
